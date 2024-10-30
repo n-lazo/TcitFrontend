@@ -1,7 +1,5 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { ApplicationConfig } from '@angular/core';
 
-import { routes } from './app.routes';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 
@@ -13,8 +11,8 @@ import { PostEffects } from './state/post.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection(),
-    provideRouter(routes),
+    //provideZoneChangeDetection(),
+    //provideRouter(routes),
     provideStore({ post: postReducer }),
     provideEffects([PostEffects]),
     provideHttpClient()

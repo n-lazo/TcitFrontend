@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Post } from './post.model';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class PostService {
   getPosts(): Observable<Post[]> {
     return of([
