@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Post } from '../post.model';
 import { selectPosts } from '../state/post.selectors';
-import { PostActions } from '../state/post.actions';
+import {PostActions, PostApiActions} from '../state/post.actions';
 
 
 
@@ -27,7 +27,7 @@ export class PostListComponent implements OnInit {
   }
 
   removePost(id: number) {
-    this.store.dispatch(PostActions.remove({ id }));
+    this.store.dispatch(PostApiActions.remove({ id }));
   }
 
 }

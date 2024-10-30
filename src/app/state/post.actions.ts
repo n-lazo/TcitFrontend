@@ -15,6 +15,10 @@ export const PostApiActions = createActionGroup({
   source: 'Post',
   events: {
     loadSuccess: props<{ posts: Post[] }>(),
-    loadError: props<{ error: string }>()
+    loadError: props<{ error: string }>(),
+    remove: props<{ id: number }>(),
+    removeSuccess: props<{ id: number }>(),
+    addSuccess: props<Post>(),
+    addError: props<{ error: string }>(),
   },
 });
