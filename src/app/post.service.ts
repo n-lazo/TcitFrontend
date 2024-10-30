@@ -5,7 +5,7 @@ import { Post } from './post.model';
 
 @Injectable({ providedIn: 'root' })
 export class PostService {
-  private apiUrl = 'http://backend:7145/api/Posts';
+  private apiUrl ='/api/Posts';
 
   constructor(private http: HttpClient) {}
 
