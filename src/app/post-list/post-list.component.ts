@@ -27,7 +27,7 @@ export class PostListComponent implements OnInit {
   }
 
   removePost(id: number) {
-    this.store.dispatch(PostApiActions.remove({ id }));
+    this.store.dispatch(PostActions.remove({ id }));
   }
 
 }
