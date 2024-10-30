@@ -2,13 +2,21 @@
 FROM node:alpine AS build
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm ci
+RUN npm install -g @angular/cli
 COPY . .
 
 # Construir la aplicación
-RUN npm run build
+RUN npm run build --configuration=production
 
-# Ejecutamos la aplicacion y la exposamos en el puerto 4200 para que docker compose pueda acceder a ella y montarla en el contenedor de nginx
-CMD ["npm", "start"]
-EXPOSE 4200
+# Etapa 2: Servir la aplicación con NGINX
+FROM nginx:latest
 
+# Copiar la configuración de NGINX
+COPY ./nginx.conf /etc/nginx/nginx.conf
+
+# Copiar los archivos de construcción al directorio de NGINX
+COPY --from=build /app/dist/posts-app/browser /usr/share/nginx/html
+
+# Exponer el puerto 80 para NGINX
+EXPOSE 80
