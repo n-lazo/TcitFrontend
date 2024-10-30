@@ -20,9 +20,18 @@ export class PostEffects {
     ofType(PostActions.remove),
     switchMap(({ id }) => this.postService.removePost(id).pipe(
       map(() => PostApiActions.removeSuccess({ id })),
-      catchError(error => of(PostApiActions.loadError({ error })))
+      catchError(error => of(PostApiActions.removeError({ error })))
     )),
   ));
+
+  addPost$ = createEffect(() => this.actions$.pipe(
+    ofType(PostActions.add),
+    switchMap(post => this.postService.addPost(post).pipe(
+      map(addedPost => PostApiActions.addSuccess(addedPost)),
+      catchError(error => of(PostApiActions.addError({ error })))
+    )),
+  ));
+
 
   constructor(
     private postService: PostService
