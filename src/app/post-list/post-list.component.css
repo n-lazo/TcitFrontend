@@ -1,0 +1,84 @@
+/* Contenedor del formulario y la tabla */
+form, .table {
+  margin: 20px auto;
+  max-width: 800px;
+  background-color: #1e1e2e;
+  padding: 20px;
+  border-radius: 8px;
+  color: #e0e0e0;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo del formulario */
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #a0a0b0;
+}
+
+form input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #2b2b3c;
+  color: #e0e0e0;
+  font-size: 1rem;
+}
+
+form input[type="text"]:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+/* Estilo de la tabla */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1e1e2e;
+}
+
+.table th, .table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+.table th {
+  color: #a0a0b0;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.table td {
+  color: #e0e0e0;
+}
+
+.table tr:hover {
+  background-color: #2b2b3c;
+}
+
+/* Estilo del enlace de eliminación */
+.table td a {
+  color: #e04f5f;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.table td a:hover {
+  color: #ff6b7a;
+  text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  form, .table {
+    max-width: 90%;
+    padding: 16px;
+  }
+
+  .table th, .table td {
+    padding: 8px;
+  }
+}
